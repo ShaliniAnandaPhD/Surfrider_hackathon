@@ -1,0 +1,10 @@
+/* Example styles for day and night themes */
+.day-theme {
+    background-color: #fff;
+    color: #333;
+}
+
+.night-theme {
+    background-color: #333;
+    color: #fff;
+}

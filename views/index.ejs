@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= appName %> Weather App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link to your custom CSS -->
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center"><%= appName %></h1>
+
+        <!-- Weather Search Form -->
+        <form action="/" method="get" class="mb-3">
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control" name="city" placeholder="City" value="<%= city || '' %>">
+                </div>
+                <div class="col">
+                    <select class="form-control" name="units">
+                        <option value="metric" <%= units === 'metric' ? 'selected' : '' %>>Metric</option>
+                        <option value="imperial" <%= units === 'imperial' ? 'selected' : '' %>>Imperial</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Get Weather</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Surfing Character Animation Placeholder -->
+        <div id="surfingCharacter"></div>
+
+        <!-- Beach Cameras Placeholder -->
+        <div id="beachCameras"></div>
+
+        <!-- Error or Weather Information -->
+        <% if (error) { %>
+            <div class="alert alert-danger"><%= error %></div>
+        <% } else { %>
+            <% if (current) { %>
+                <div class="weather-info">
+                    <h2>Current Weather in <%= city %></h2>
+                    <p><strong>Temperature:</strong> <%= current.temp %>°</p>
+                    <p><strong>Weather:</strong> <%= current.weather.description %></p>
+                </div>
+            <% } %>
+            <% if (forecast) { %>
+                <div class="forecast-info">
+                    <h2>5-Day Forecast</h2>
+                    <% forecast.forEach(day => { %>
+                        <div class="forecast-item">
+                            <h3><%= new Date(day.valid_date).toDateString() %></h3>
+                            <p><strong>Temperature:</strong> High: <%= day.max_temp %>°, Low: <%= day.min_temp %>°</p>
+                            <p><strong>Weather:</strong> <%= day.weather.description %></p>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } %>
+        <% } %>
+    </div>
+
+    <script src="/js/script.js" defer></script> <!-- Link to your custom JS -->
+</body>
+</html>
+
+
