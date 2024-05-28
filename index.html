@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surfrider Hackathon Project</title>
+    
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Link to Google Maps JavaScript API (replace YOUR_API_KEY with your actual API key) -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</head>
+<body>
+    <!-- Main container for the application -->
+    <div id="app">
+        <!-- Header section -->
+        <header>
+            <h1>Surfrider Hackathon Project</h1>
+        </header>
+        
+        <!-- Main content section -->
+        <main>
+            <!-- Placeholder for Google Maps -->
+            <div id="map"></div>
+            
+            <!-- Placeholder for surf conditions and animations -->
+            <div id="surf-info">
+                <h2>Current Surf Conditions</h2>
+                <div id="conditions"></div>
+                <div id="surf-animation"></div>
+            </div>
+        </main>
+        
+        <!-- Footer section -->
+        <footer>
+            <p>Surfrider Hackathon Project © 2024</p>
+        </footer>
+    </div>
+    
+    <!-- Link to external JavaScript files for application logic -->
+    <script src="app.js"></script>
+    <script src="maps.js"></script>
+    <script src="animations.js"></script>
+    <script src="notifications.js"></script>
+    <script src="api.js"></script>
+    <script src="utils.js"></script>
+</body>
+</html>
